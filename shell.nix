@@ -8,8 +8,13 @@ in with project.pkgs;
 mkShell {
   name = "cv-env";
   buildInputs = with project; [
-    latex pandoc-pkgs
+    compile-pdf compile-gif publish
+    latex pandoc-pkgs imagemagick ghostscript 
   ];
   shellHook = ''
+  if [[ ! -d public ]]; then
+    git submodule init
+    git submodule update --remote
+  fi
   '';
 }

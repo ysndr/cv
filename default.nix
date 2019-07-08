@@ -19,7 +19,42 @@ with  import pkgs.path {
   overlays = [ ];
 };
 let
- 
+  
+  publicdir = "public";
+  pdfout = "curriculum-vitae-yannik-sander.pdf";
+  gifout = "curriculum-vitae-yannik-sander.gif";
+  cvsrc = "cv.yaml";
+  cvtemplate = "cv.tex";
+
+  compile-pdf = pkgs.writeShellScriptBin "compile-pdf" ''
+    ${pandoc}/bin/pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
+  '';
+
+  compile-gif = pkgs.writeShellScriptBin "compile-gif" ''
+    ${compile-pdf}/bin/compile-pdf
+    ${imagemagick}/bin/convert -layers OptimizePlus \
+                               -set units PixelsPerInch \
+                               -delay 300 \
+                               -loop 0 \
+                               ${publicdir}/${pdfout} \
+                               -density 350 \
+                               ${publicdir}/${gifout}  
+  '';
+
+  publish = pkgs.writeShellScriptBin "publish-cv" ''
+    set -ex
+
+    pushd ${publicdir}
+    ${git}/bin/git add .
+    ${git}/bin/git commit
+    ${git}/bin/git push
+    popd 
+    ${git}/bin/git add public 
+    ${git}/bin/git commit -m "(Public) updated gist"
+  '';
+
+
+
   latex = texlive.combine {
     inherit (texlive) scheme-small
                       collection-mathscience
@@ -39,5 +74,6 @@ let
 
 in {
   inherit pkgs;
-  inherit latex pandoc-pkgs;
+  inherit (pkgs) imagemagick ghostscript;
+  inherit latex pandoc-pkgs compile-pdf compile-gif publish;
 } 
