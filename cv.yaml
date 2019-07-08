@@ -1,0 +1,163 @@
+---
+### Macro's ###
+
+# use \latex for the special LaTeX symbol
+# use \amper for the special ampersand symbol
+# use \andIquote for special hanging punctuation at the beginning of a paragraph
+# use -- for a nut dash or n-dash
+# use --- for a mutton dash or m-dash
+
+### Personal details ###
+
+firstname: Yannik
+lastname: Sander
+# Adjust this to the job you are applying for
+# title: Philosopher
+birthdate: 16.11.1998
+address:
+- Heeper Straße 235
+- 33607 Bielefeld
+- Germany
+phone: +49 176 34668723
+email: contact@ysndr.de
+# Insert URLs without http://
+urls:
+- github.com/ysndr
+- linkedin.com/in/yannik-sander
+
+
+### Sections ###
+
+# Describe your intention, what makes you tick and why you want to work here.
+
+# intro:
+#   - I know my fate. One day my name will be associated with the memory of something tremendous --- a crisis without equal on earth, the most profound collision of conscience, a decision that was conjured up against everything that had been believed, demanded, hallowed so far. I am no man, I am dynamite.
+#   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+# Your skills and interests that are essential to the job
+skillstitle: Skills & areas of interest
+skills:
+- Application and Architecture of Machine Learning Algorithms and Neural Networks
+- Big Data Analytics
+- "Languages and ecosystems: Java, Python (SciPy stack), Typescript, VueJS/NuxtJS, PHP"
+- "Systems/embedded development and WASM with [rust](https://www.rust-lang.org/)"
+- "Declarative System configuration with [nix](https://nixos.org/nix/)"
+- Linux/Unix philosophy
+
+
+# This way you can list things you've accomplished without needing to associate them with a class or company. I however discourage detailed descriptions of these projects. Titles should be eye caching and be used for inspiration of talking points during the interview.
+# projectstitle: Projects
+# projects:
+# - Apollonian and Dionysian
+# - Perspectivism
+# - Death of God and nihilism
+
+# Your spoken languages, preferably only name those professionally usable
+languagestitle: Languages
+languages:
+- language: German
+  proficiency: native speaker
+- language: English
+  proficiency: full professional proficiency
+
+# Experience regarding the job you are applying for, if beginning out only use this section, not other work experience.
+experiencetitle: Business Experience # or Previous Experience
+experience:
+- beginyears: june 2018
+  # endyears: jan 1889
+  employer: Wambo Agency GmbH & Co. KG
+  profession: Full-Stack Software Developer 
+  city: Bielefeld
+  details:
+    - Developing an analytics dashboard for web shops based on (Magento, Laravel, NuxtJS)
+- beginyears: april 2016
+  endyears: may 2018
+  employer: BATT GmbH
+  profession: Software Developer
+  city: Bielefeld
+  details:
+    - Wrote modules for the ERP system odoo
+    - Created python drivers for several Sensors to create a framwork for testing hardware used in aviation lighting on helipads
+
+# Work not directly related to the job you are applying for
+otherexperiencetitle: Other Related Experiences
+otherexperience:
+- beginyears: march 2019
+  endyears: july 2019
+  employer: University of Bielefeld
+  profession: Product owner
+  city: Bielefeld
+  details:
+    - Worked on a project with fellow students in partnership with Capgemini SE, using agile software engeneering strategy
+    - Developed mobile first PWA using NuxtJS and Java Spring for managing conferences and meetings in distributed venues
+- beginyears: march 2019
+  endyears: august 2019
+  employer: University of Bielefeld
+  profession: Machine Leraning Project
+  city: Bielefeld
+  details:
+    - Holding a presentation and implementing a project about the SAM-kNN Algorithm
+
+# Self explanatory
+educationtitle: Education
+education:
+- beginyears: 2017
+  endyears:
+  subject: Cognitive Computer Science
+  institute: University of Bielefeld
+  city: Bielefeld
+  degree: Bachelor of Science
+  # details:
+  #   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+- beginyears: 2009
+  endyears: 2017
+  subject: Abitur
+  institute: Helmholtz Gymnasium Bielefeld
+  city: Bielefeld
+  degree: --
+  # details:
+  #   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+  #   - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+# Note special people who can endorse/recommend you, must be directly related to the job you are applying for
+# endorsementstitle: Endorsements # or Recommendations
+# endorsements:
+# - firstname: Paul
+#   lastname: Deussen
+#   profession: Indologist and Professor of Philosophy
+#   company: University of Kiel
+#   quote: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+# - firstname: Karl
+#   lastname: Hillebrand
+#   profession: Professor of Foreign Literature
+#   company: Firenze
+#   quote: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+
+# Additional information that can be of use.
+informationtitle: Additional Information
+information:
+- information_title: Scholarship holder at *Studienstiftung des deutschen Volkes*
+  information_content: 2017 --
+- information_title: Participation in *Google Hashcode 2019*
+  information_content: "[https://github.com/ysndr/google-hashcode-2019](https://github.com/ysndr/google-hashcode-2019)"
+# - information_title: Rate
+#   information_content: 55,- p.h.
+# - information_title: Availability
+#   information_content: Not available on 5th of may - 8th of may
+# - information_title: Special Circumstances
+#   information_content: None
+
+### Settings ###
+
+# photo: "NietzscheA.jpg" # Photo filename with extension, .PNG or .JPG files preferably, dont use special characters in your filename
+mainfont: "Alegreya" # fonts: Hoefler Text / OFL Sorts Mill Goudy / Sabon LT Std / Cardo / Linux Libertine O | you can use any good font, put your .otf in the fonts dir
+fontsize: 10pt # this template is based upon 10pt, ratios may not scale accordingly, options: 10pt or 11pt or 12pt
+lang: en-DK # do not use capital letters: dutch / german
+geometry: a4paper, left=35mm, right=35mm, top=51mm, bottom=30mm # This document should NOT be printed double sided!
+geometrysecondarypagestop: 11mm # this will be minus! So 51mm - 21mm
+textcolor: "1e2323" # use hexcolor, 000000 for black
+linkcolor: "3E6E7E" # use hexcolor, FF0000 for red
+pagecolor: "fefefe" # use hexcolor, FFFFFF for white
+template: ./cv.tex
+links-as-notes: true
+...

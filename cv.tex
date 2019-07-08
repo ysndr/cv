@@ -1,0 +1,311 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[$fontsize$, a4paper, oneside]{article}
+
+% CONTROL/CHECKING
+%--------------------------------
+% To check page proportions
+% \usepackage{showframe}
+
+% To check vertical Rhythm
+% \usepackage{vgrid}
+
+% LAYOUT
+%--------------------------------
+% Margins
+\usepackage{geometry}
+\geometry{$geometry$}
+
+% Second page and onwards different top margin height
+\usepackage{etoolbox}
+\newlength\newtop
+\setlength{\newtop}{$geometrysecondarypagestop$}
+\makeatletter
+\patchcmd\@outputpage{\global \@colht \textheight}{%
+\global\textheight=\dimexpr\textheight+\newtop\relax%
+\global\topmargin=\dimexpr\topmargin-\newtop\relax%
+\global\@colht\textheight%
+\global\newtop\z@}{}{\err}
+\makeatother
+
+% To lose the justification but have ragged text with hyphenation
+\usepackage[document]{ragged2e}
+
+% Do not indent paragraphs, this is changed only for intro later
+\setlength\parindent{0in}
+
+% To color your document text
+\usepackage{xcolor}
+\definecolor{textcolor}{HTML}{$textcolor$}
+
+\makeatletter
+\newcommand{\globalcolor}[1]{%
+  \color{#1}\global\let\default@color\current@color
+}
+\makeatother
+
+\AtBeginDocument{\globalcolor{textcolor}}
+
+% To color your pagebackground
+\usepackage{pagecolor}
+\definecolor{pagecolor}{HTML}{$pagecolor$}
+\pagecolor{pagecolor}
+
+% Enable importing and manipulating graphics
+\usepackage[skins]{tcolorbox}
+
+% To enable page numbering with: "Lastname Résumé - Page 1 of 2 in small caps"
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+% To enable correct spacing
+\usepackage{xspace}
+\pagestyle{fancy}
+\fancyhf{}
+% Remove headline
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\textsc{\MakeLowercase{$firstname$} \MakeLowercase{$lastname$} cv -- page \thepage \xspace of \pageref*{LastPage}}\\\vspace{.45cm}{\footnotesize \href{tel:$phone$}{$phone$} --
+\href{mailto:$email$}{$email$}}\\\textit{\footnotesize save trees do not print}}
+
+% LANGUAGE
+%--------------------------------
+% Set the main language
+$if(lang)$
+\usepackage{polyglossia}
+\setmainlanguage{$lang$}
+\PolyglossiaSetup{$lang$}{indentfirst=false}
+$endif$
+
+% TYPOGRAPHY
+%--------------------------------
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+% Converts LaTeX specials (quotes, dashes etc.) to Unicode
+\defaultfontfeatures{Mapping=tex-text}
+% Enable special ligatures & stylistic font sets
+% may enable RawFeature +ss02 as well
+\setromanfont[Ligatures={Common, Historic, Rare}, Numbers={OldStyle}, RawFeature={+ss04,+ss05}]{$mainfont$}
+
+% Cool ampersand
+\makeatletter
+\DeclareRobustCommand{\amper}{%
+  \texorpdfstring{%
+    \begingroup
+    \ifx\f@shape\scname
+      \smaller[1.2]%
+    \fi
+    \char"E050
+    \endgroup
+    }{\&}\xspace
+}
+\makeatother
+
+% Cool LaTeX symbol
+\newcommand{\latex}{\LaTeX\xspace}
+
+% For hanging Punctuation in block quotes for endorsements
+\def\andIquote{\makebox[0pt][r]{``}}
+
+% MARGIN NOTES
+%--------------------------------
+\usepackage{marginnote}
+\newcommand{\note}[1]{\marginnote{\scriptsize #1}}
+\renewcommand*{\raggedleftmarginnote}{}
+\setlength{\marginparsep}{7pt}
+\reversemarginpar
+
+% HEADINGS
+%--------------------------------
+\usepackage{sectsty}
+\usepackage[normalem]{ulem}
+\sectionfont{\rmfamily\mdseries}
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize}
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+
+% PDF SETUP
+%--------------------------------
+\usepackage{hyperref}
+\hypersetup
+{
+  pdfauthor={$firstname$ $lastname$},
+  pdfsubject={$firstname$ $lastname$'s CV},
+  pdftitle={$firstname$ $lastname$'s CV},
+  colorlinks, breaklinks, xetex, bookmarks,
+  filecolor=black,
+  urlcolor=[HTML]{$linkcolor$},
+  linkcolor=[rgb]{$linkcolor$},
+  linkcolor=[rgb]{$linkcolor$},
+  citecolor=[rgb]{$linkcolor$}
+}
+
+% DOCUMENT
+%--------------------------------
+\begin{document}
+
+% COLUMN 1
+% A mistake that is often made is, there is a blank line between the \end{minipage} and \begin{minipage} left. Then the pages are no longer together.
+\begin{minipage}[t]{0.4\linewidth}
+
+{\LARGE $firstname$ $lastname$}\\
+\vspace{\baselineskip}
+{\Large \MakeLowercase{\textsc{$title$}}}\\
+\vspace{\baselineskip}
+$for(address)$
+$address$\\
+$endfor$
+\vspace{\baselineskip}
+$birthdate$\\
+
+\end{minipage}
+% COLUMN 2
+\begin{minipage}[t]{0.4\linewidth}
+\vspace{.63cm}
+
+\href{tel:$phone$}{$phone$}\\
+\href{mailto:$email$}{$email$}\\
+\vspace{\baselineskip}
+$for(urls)$
+\href{http://$urls$}{$urls$}\\
+$endfor$
+
+\end{minipage}
+$if(photo)$
+% COLUMN 3
+\begin{minipage}[t]{0.2\linewidth}
+\vspace{-1.4cm}
+\begin{flushright}
+\begin{tikzpicture}
+\node[circle,inner sep=.85cm,fill overzoom image=$photo$] (A) {};
+\end{tikzpicture}
+\end{flushright}
+
+\end{minipage}
+$endif$
+
+$if(intro)$
+\vspace{.915cm}
+$for(intro)$
+$intro$
+
+\setlength\parindent{1em}
+$endfor$
+\setlength\parindent{0em}
+$endif$
+\vspace{4pt}
+$if(skills)$
+\subsection*{$skillstitle$}
+\begin{itemize}
+    $for(skills)$
+      \item $skills$
+    $endfor$
+\end{itemize}
+$endif$
+
+$if(languages)$
+\subsection*{$languagestitle$}
+\begin{itemize}
+    $for(languages)$
+      \item $languages.language$ -- \emph{$languages.proficiency$}
+    $endfor$
+\end{itemize}
+$endif$
+
+$if(projects)$
+\subsection*{$projectstitle$}
+\begin{itemize}
+    $for(projects)$
+      \item $projects$
+    $endfor$
+\end{itemize}
+$endif$
+
+\vspace{-.15cm}
+
+$if(experience)$
+\section*{$experiencetitle$}
+$for(experience)$
+\note{$experience.beginyears$
+$if(experience.endyears)$
+ -- $experience.endyears$
+$endif$
+}\textsc{$experience.employer$} -- $experience.city$\\
+\emph{$experience.profession$}\\
+$experience.city$
+$if(experience.details)$
+\begin{itemize}
+    \setlength\itemsep{-.25em}
+    $for(experience.details)$
+      \item $experience.details$
+    $endfor$\\
+\end{itemize}
+$endif$
+$endfor$
+$endif$
+
+$if(otherexperience)$
+\section*{$otherexperiencetitle$}
+$for(otherexperience)$
+\note{$otherexperience.beginyears$
+$if(otherexperience.endyears)$
+ -- $otherexperience.endyears$
+$endif$
+}\textsc{$otherexperience.employer$} -- $otherexperience.city$\\
+\emph{$otherexperience.profession$}\\
+$otherexperience.city$
+$if(otherexperience.details)$
+\begin{itemize}
+    \setlength\itemsep{-.25em}
+    $for(otherexperience.details)$
+      \item $otherexperience.details$
+    $endfor$\\
+\end{itemize}
+$endif$
+$endfor$
+$endif$
+
+$if(education)$
+\section*{$educationtitle$}
+$for(education)$
+\note{$education.beginyears$
+$if(education.endyears)$
+ -- $education.endyears$
+$endif$
+}\textsc{$if(education.degree)$$education.degree$$endif$ $education.subject$}\\
+\emph{$education.institute$}\\
+$if(education.city)$$education.city$$endif$
+$if(education.details)$
+\begin{itemize}
+    \setlength\itemsep{-.25em}
+    $for(education.details)$
+      \item $education.details$
+    $endfor$\\
+\end{itemize}
+$endif$
+$endfor$
+$endif$
+
+$if(endorsements)$
+\section*{$endorsementstitle$}
+    $for(endorsements)$
+      \textsc{$endorsements.firstname$ $endorsements.lastname$} -- $endorsements.company$\\
+      \emph{$endorsements.profession$}
+      \begin{itemize}
+          \setlength\itemsep{-.25em}
+          $for(endorsements.quote)$
+            {\small\item[]\parbox{38em}{\andIquote $endorsements.quote$''}}
+          $endfor$\\
+      \end{itemize}
+    $endfor$
+$endif$
+
+$if(information)$
+\section*{$informationtitle$}
+    $for(information)$
+      \textsc{$information.information_title$}: $information.information_content$\\
+      $endfor$
+$endif$
+
+$body$
+
+\end{document}
