@@ -37,17 +37,14 @@ skillstitle: Skills & areas of interest
 skills:
 - Application and Architecture of Machine Learning Algorithms and Neural Networks
 - Big Data Analytics
-- "Languages and ecosystems: Java, Python (SciPy stack), Typescript, VueJS/NuxtJS, PHP"
+- "Languages and ecosystems: Java, Python (SciPy, Scikit), Typescript, VueJS/NuxtJS, PHP"
 - "Systems/embedded development and WASM with [rust](https://www.rust-lang.org/)"
 - "Declarative System configuration with [nix](https://nixos.org/nix/)"
-- Linux/Unix philosophy
-- Typesetting with \latex and Pandoc
-
 
 # This way you can list things you've accomplished without needing to associate them with a class or company. I however discourage detailed descriptions of these projects. Titles should be eye caching and be used for inspiration of talking points during the interview.
+
 # projectstitle: Projects
 # projects:
-# - Apollonian and Dionysian
 # - Perspectivism
 # - Death of God and nihilism
 
@@ -68,7 +65,8 @@ experience:
   profession: Full-Stack Software Developer 
   city: Bielefeld
   details:
-    - Developing an analytics dashboard for web shops based on (Magento, Laravel, NuxtJS)
+    - Developing an analytics dashboard for web shops based on Magento using Laravel & NuxtJS
+    - Working on a smart sorting tool for webshops
 - beginyears: april 2016
   endyears: may 2018
   employer: BATT GmbH
@@ -76,7 +74,7 @@ experience:
   city: Bielefeld
   details:
     - Wrote modules for the ERP system odoo
-    - Created python drivers for several Sensors to create a framwork for testing hardware used in aviation lighting on helipads
+    - Created python drivers for several sensors to build a testing framework for hardware used in aviation lighting on helipads
 
 # Work not directly related to the job you are applying for
 otherexperiencetitle: Other Related Experiences
@@ -95,7 +93,15 @@ otherexperience:
   profession: Machine Leraning Project
   city: Bielefeld
   details:
-    - Holding a presentation and implementing a project about the SAM-kNN Algorithm
+    - Developed SAM kNN Regressor [(Availlable on Github)](https://github.com/ysndr/sam-knn-regressor)
+- beginyears: july 2019
+  # endyears: august 2019
+  employer: NixOS/Nix Organization
+  profession: Maintainer for several packages
+  # city: Bielefeld
+  details:
+    # - Developed SAM kNN Regressor [(Availlable on Github)](https://github.com/ysndr/sam-knn-regressor)
+
 
 # Self explanatory
 educationtitle: Education
@@ -110,10 +116,10 @@ education:
   #   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
 - beginyears: 2009
   endyears: 2017
-  subject: Abitur
+  # subject: Abitur
   institute: Helmholtz Gymnasium Bielefeld
   city: Bielefeld
-  degree: --
+  degree: Abitur
   # details:
   #   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
   #   - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
