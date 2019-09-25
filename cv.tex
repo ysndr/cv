@@ -252,9 +252,8 @@ $for(otherexperience)$
 $if(otherexperience.endyears)$
  -- $otherexperience.endyears$
 $endif$
-}\textsc{$otherexperience.employer$} -- $otherexperience.city$\\
+}\textsc{$otherexperience.employer$}$if(otherexperience.details)$ -- $otherexperience.city$$endif$\\
 \emph{$otherexperience.profession$}\\
-$otherexperience.city$
 $if(otherexperience.details)$
 \begin{itemize}
     \setlength\itemsep{-.25em}
@@ -275,7 +274,7 @@ $if(education.endyears)$
 $endif$
 }\textsc{$if(education.degree)$$education.degree$$endif$ $education.subject$}\\
 \emph{$education.institute$}\\
-$if(education.city)$$education.city$$endif$
+$if(education.city)$$education.city$$endif$\\
 $if(education.details)$
 \begin{itemize}
     \setlength\itemsep{-.25em}
