@@ -11,10 +11,4 @@ mkShell {
     compile-pdf compile-gif publish
     latex pandoc-pkgs imagemagick ghostscript 
   ];
-  shellHook = ''
-  if [[ ! -d public ]]; then
-    git submodule init
-    git submodule update --remote
-  fi
-  '';
 }
