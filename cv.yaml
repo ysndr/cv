@@ -36,8 +36,9 @@ urls:
 skillstitle: Skills & areas of interest
 skills:
 - Application and Architecture of Machine Learning Algorithms and Neural Networks
-- Big Data Analytics
-- "Languages and ecosystems: Java, Python (SciPy, Scikit), Typescript, VueJS/NuxtJS, PHP"
+- Big Data Analytics & Semantic Web
+- Functional Programming
+- "Languages and ecosystems: Rust, Java, Python (SciPy, Scikit), Typescript, VueJS/NuxtJS, PHP, Haskell"
 - "Systems/embedded development and WASM with [rust](https://www.rust-lang.org/)"
 - "Declarative System configuration with [nix](https://nixos.org/nix/)"
 
@@ -90,7 +91,7 @@ otherexperience:
 - beginyears: march 2019
   endyears: august 2019
   employer: University of Bielefeld
-  profession: Machine Leraning Project
+  profession: Machine Learning Project
   city: Bielefeld
   details:
     - Developed SAM kNN Regressor [(Availlable on Github)](https://github.com/ysndr/sam-knn-regressor)
@@ -162,7 +163,7 @@ geometry: a4paper, left=35mm, right=35mm, top=51mm, bottom=30mm # This document 
 geometrysecondarypagestop: 11mm # this will be minus! So 51mm - 21mm
 textcolor: "1e2323" # use hexcolor, 000000 for black
 linkcolor: "3E6E7E" # use hexcolor, FF0000 for red
-pagecolor: "fefefe" # use hexcolor, FFFFFF for white
+pagecolor: "ffffff" # use hexcolor, FFFFFF for white
 template: ./cv.tex
 links-as-notes: true
 ...
