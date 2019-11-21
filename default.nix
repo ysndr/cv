@@ -1,59 +1,86 @@
-let
-  # Look here for information about how to generate `nixpkgs-version.json`.
-  #  → https://nixos.wiki/wiki/FAQ/Pinning_Nixpkgs
-  pinnedVersion = pin: builtins.fromJSON (builtins.readFile pin);
-  pinnedPkgs = pin:  import (builtins.fetchTarball {
-    inherit (pinnedVersion pin) url sha256;
-    name = "nixpkgs-${(pinnedVersion pin).date}";
-  }) {};
-  pkgs' = pinned: (
-    if (!isNull pinned) then pinnedPkgs pinned 
-    else import <nixpkgs> {});
-  nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      pkgs=pkgs';
-  };
-
-in
-{ pkgs ? pkgs' pinned, pinned ? null }:
+{pkgs ? import (if pin == false then <nixpkgs> else pin) {},
+ pin ? ./nixpkgs.nix, 
+ publicdir ? "public",
+ pdfout ? "curriculum-vitae-yannik-sander.pdf",
+ gifout ? "curriculum-vitae-yannik-sander.gif",
+ cvsrc ? "cv.yaml",
+ cvtemplate ? "cv.tex",
+ ... }:
 with  import pkgs.path { 
   overlays = [ ];
 };
 let
+
+  nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      pkgs=pkgs;
+  };
+
+  script = {...} @ args: nur-local.lib.wrap ({
+    shell = true;
+  } // args);
   
-  publicdir = "public";
-  pdfout = "curriculum-vitae-yannik-sander.pdf";
-  gifout = "curriculum-vitae-yannik-sander.gif";
-  cvsrc = "cv.yaml";
-  cvtemplate = "cv.tex";
+  bin = file: script ({ inherit file; bin = true; name = file.name; });
+  
+  #= nur.repos.ysndr.lib.wrap;
+ 
+  # --------------- Commands ----------------
+ 
 
-  compile-pdf = pkgs.writeShellScriptBin "compile-pdf" ''
-    ${pandoc}/bin/pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
-  '';
+  compile-pdf = script {
+    name = "compile-pdf";
+    paths = [latex] ++ pandoc-pkgs;
+    script = ''
+      echo I got executed
+      # pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
+    '';
+  };
 
-  compile-gif = pkgs.writeShellScriptBin "compile-gif" ''
-    ${compile-pdf}/bin/compile-pdf
-    ${imagemagick}/bin/convert -layers OptimizePlus \
-                               -set units PixelsPerInch \
-                               -delay 300 \
-                               -loop 0 \
-                               ${publicdir}/${pdfout} \
-                               -density 350 \
-                               ${publicdir}/${gifout}  
-  '';
+  compile-gif = script {
+    name = "compile-gif"; 
+    paths = [imagemagick ghostscript];
+    script = ''
+      ${compile-pdf}
+      convert -layers OptimizePlus \
+              -set units PixelsPerInch \
+              -delay 300 \
+              -loop 0 \
+              ${pdfout} \
+              -density 350 \
+              ${gifout}  
+    '';
+  };
 
-  publish = pkgs.writeShellScriptBin "publish-cv" ''
-    set -ex
+  publish = script {
+    name = "publish"; 
+    paths = [git];
+    script =  ''
+      set -ex
 
-    pushd ${publicdir}
-    ${git}/bin/git add .
-    ${git}/bin/git commit
-    ${git}/bin/git push
-    popd 
-    ${git}/bin/git add public 
-    ${git}/bin/git commit -m "(Public) updated gist"
-  '';
+      git submodule init -- ${publicdir}
 
+      if [ $# -lt 2 ]; then
+        echo "Info: using default git config"
+      elif
+        src-url=$1
+        result-url=$2
+        git config submodule.${publicdir}.url $result-url
+      fi
+    
 
+      git submodule update --init --remote --rebase
+
+      ${compile-pdf}
+
+      pushd ${publicdir}
+      git add .
+      git commit
+      git push
+      popd
+      git add public 
+      git commit -m "(Public) updated gist"
+      git push $src-url
+    '';
+  };
 
   latex = texlive.combine {
     inherit (texlive) scheme-small
@@ -68,12 +95,19 @@ let
     haskellPackages.pandoc-citeproc
   ];
 
-  # --------------- Commands ----------------
-
-
+  shell = mkShell {
+    name = "cv-env";
+    buildInputs = [] ++ map bin [
+      (compile-pdf pdfout)
+      (compile-gif pdfout gifout)
+      publish
+    ];
+  };
 
 in {
-  inherit pkgs;
-  inherit (pkgs) imagemagick ghostscript;
-  inherit latex pandoc-pkgs compile-pdf compile-gif publish;
+  
+  inherit shell; 
+  ci = {
+    inherit compile-pdf publish;
+  };
 } 
