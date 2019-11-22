@@ -1,0 +1,42 @@
+name: "Compile CV and Upload"
+
+on:
+  push
+
+jobs:
+  buid-and-deploy:
+    if: "contains(github.event.head_commit.message, '>build')"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Nix
+      uses: cachix/install-nix-action@v6
+    - name: Setup Git
+      run: |
+            echo Setting up git user config...
+            git config --global user.name "cv-builder"
+            git config --global user.email "notifications+cv@ysndr.de"
+            git config submodule.public.url "https://ysndr:${{secrets.GH_TOKEN}}@gist.github.com/978662957bb9187fd52b2037466e1e34.git"
+            git config submodule.public.branch master 
+            git submodule update --init --remote --merge
+            git checkout ${GITHUB_REF##*/}
+    - name: Compile Document
+      run: $(nix-build -A ci.compile-pdf --no-out-link)
+    - name: Push Document
+      run: |
+            pushd public
+            git status
+            popd
+            $(nix-build -A ci.publish --no-out-link)
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }} 
+  always-run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Be friendly
+      run: |
+            echo "This is just here to prevent failure if the commit is not supposed to be build."
+            echo "Don't mind, have a joke :)"
+            echo "$(curl -Ss https://icanhazdadjoke.com/)"

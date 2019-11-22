@@ -15,13 +15,13 @@ let
       pkgs=pkgs;
   };
 
-  script = {...} @ args: nur-local.lib.wrap ({
+  script = {...} @ args: nur.repos.ysndr.lib.wrap ({
     shell = true;
   } // args);
   
   bin = file: script ({ inherit file; bin = true; name = file.name; });
   
-  #= nur.repos.ysndr.lib.wrap;
+  #;
  
   # --------------- Commands ----------------
  
@@ -30,8 +30,7 @@ let
     name = "compile-pdf";
     paths = [latex] ++ pandoc-pkgs;
     script = ''
-      echo I got executed
-      # pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
+      pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
     '';
   };
 
@@ -55,37 +54,23 @@ let
     paths = [git];
     script =  ''
       set -ex
-
-      git submodule init -- ${publicdir}
-
-      if [ $# -lt 2 ]; then
-        echo "Info: using default git config"
-      elif
-        src-url=$1
-        result-url=$2
-        git config submodule.${publicdir}.url $result-url
-      fi
-    
-
-      git submodule update --init --remote --rebase
-
-      ${compile-pdf}
+      commit=$(git log -1 --abbrev-commit --oneline | cut -f1 -d " ")
 
       pushd ${publicdir}
       git add .
-      git commit
+      git commit -m "Update gist to track commit ysndr/cv@$commit"
+      git rebase HEAD master
       git push
       popd
       git add public 
       git commit -m "(Public) updated gist"
-      git push $src-url
+      echo "Done! you can now push your repo"
     '';
   };
 
   latex = texlive.combine {
-    inherit (texlive) scheme-small
-                      collection-mathscience
-                      collection-latexextra
+    inherit (texlive) scheme-small 
+    footmisc pagecolor etoolbox xcolor tcolorbox lastpage fancyhdr  polyglossia xunicode xltxtra marginnote sectsty hyperref environ trimspaces tex-gyre alegreya
                       ;
   };
 
@@ -98,8 +83,8 @@ let
   shell = mkShell {
     name = "cv-env";
     buildInputs = [] ++ map bin [
-      (compile-pdf pdfout)
-      (compile-gif pdfout gifout)
+      compile-pdf
+      compile-gif
       publish
     ];
   };

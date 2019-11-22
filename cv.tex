@@ -1,6 +1,3 @@
-%!TEX TS-program = xelatex
-%!TEX encoding = UTF-8 Unicode
-
 \documentclass[$fontsize$, a4paper, oneside]{article}
 
 % CONTROL/CHECKING
@@ -72,8 +69,8 @@
 % Set the main language
 $if(lang)$
 \usepackage{polyglossia}
-\setmainlanguage{$lang$}
-\PolyglossiaSetup{$lang$}{indentfirst=false}
+\setmainlanguage{$polyglossia-lang$}
+\PolyglossiaSetup{$polyglossia-lang$}{indentfirst=false}
 $endif$
 
 % TYPOGRAPHY
@@ -82,10 +79,28 @@ $endif$
 \usepackage{xunicode}
 \usepackage{xltxtra}
 % Converts LaTeX specials (quotes, dashes etc.) to Unicode
-\defaultfontfeatures{Mapping=tex-text}
 % Enable special ligatures & stylistic font sets
 % may enable RawFeature +ss02 as well
-\setromanfont[Ligatures={Common, Historic, Rare}, Numbers={OldStyle}, RawFeature={+ss04,+ss05}]{$mainfont$}
+\IfFontExistsTF{$mainfont$}
+  {
+  \setmainfont[Ligatures={Common, Historic, Rare}, Numbers={OldStyle}, RawFeature={+ss04,+ss05}]{$mainfont$}
+  \defaultfontfeatures{Mapping=tex-text}
+  }
+  {
+    \usepackage[T1]{fontenc}
+    \usepackage{$mainfont$}
+  }
+% % {
+%   % \setmainfont[Ligatures={Common, Historic, Rare}, Numbers={OldStyle}, RawFeature={+ss04,+ss05}]{$mainfont$}
+% % }
+% {
+%   \usepackage{$mainfont$}
+%   % \usepackage[T1]{fontenc}
+% }
+% {
+%   \usepackage{$mainfont$}
+%   % \usepackage[T1]{fontenc}
+% }
 
 % Cool ampersand
 \makeatletter

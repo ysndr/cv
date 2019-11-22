@@ -62,7 +62,7 @@ experiencetitle: Business Experience # or Previous Experience
 experience:
 - beginyears: june 2018
   # endyears: jan 1889
-  employer: Wambo Agency GmbH & Co. KG
+  employer: Wambo Agency GmbH & Co.KG
   profession: Full-Stack Software Developer 
   city: Bielefeld
   details:
@@ -156,7 +156,7 @@ information:
 ### Settings ###
 
 # photo: "NietzscheA.jpg" # Photo filename with extension, .PNG or .JPG files preferably, dont use special characters in your filename
-mainfont: "Alegreya" # fonts: Hoefler Text / OFL Sorts Mill Goudy / Sabon LT Std / Cardo / Linux Libertine O | you can use any good font, put your .otf in the fonts dir
+mainfont: Alegreya # fonts: Hoefler Text / OFL Sorts Mill Goudy / Sabon LT Std / Cardo / Linux Libertine O | you can use any good font, put your .otf in the fonts dir
 fontsize: 10pt # this template is based upon 10pt, ratios may not scale accordingly, options: 10pt or 11pt or 12pt
 lang: en-DK # do not use capital letters: dutch / german
 geometry: a4paper, left=35mm, right=35mm, top=51mm, bottom=30mm # This document should NOT be printed double sided!
