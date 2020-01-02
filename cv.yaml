@@ -20,6 +20,7 @@ phone: #
 email: contact@ysndr.de
 # Insert URLs without http://
 urls:
+- ysndr.de
 - github.com/ysndr
 - linkedin.com/in/yannik-sander
 
@@ -67,7 +68,7 @@ experience:
   city: Bielefeld
   details:
     - Developing an analytics dashboard for web shops based on Magento using Laravel & NuxtJS
-    - Working on a smart sorting tool for webshops
+    - Working on a smart sorting tool for web shops using Laravel
 - beginyears: april 2016
   endyears: may 2018
   employer: BATT GmbH
@@ -86,8 +87,8 @@ otherexperience:
   profession: Product owner
   city: Bielefeld
   details:
-    - Worked on a project with fellow students in partnership with Capgemini SE, using agile software engeneering strategies
-    - Developed mobile first PWA using NuxtJS and Java Spring for managing conferences and meetings in distributed venues
+    - Worked on a project with fellow students in partnership with Capgemini SE using agile software engineering strategies
+    - Developed a mobile first PWA using NuxtJS and Java Spring for managing conferences and meetings in distributed venues
 - beginyears: march 2019
   endyears: august 2019
   employer: University of Bielefeld
@@ -102,6 +103,13 @@ otherexperience:
   # city: Bielefeld
   details:
     # - Developed SAM kNN Regressor [(Availlable on Github)](https://github.com/ysndr/sam-knn-regressor)
+- beginyears: september 2019
+  endyears: february 2020
+  employer: University of Bielefeld
+  profession: Project in NLP using BERT
+  city: Bielefeld
+  details:
+    - Used BERT model to do relationship extraction
 
 
 # Self explanatory
