@@ -5,8 +5,8 @@ Personal curriculum vitae [rendered](https://gist.github.com/ysndr/978662957bb91
 ![](https://github.com/ysndr/cv/workflows/Compile%20CV%20and%20Upload/badge.svg)[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org) 
 
 
-If you are using nix run `nix-shell  --arg pinned './.nixpkgs-version.json'` to drop into a preconfigured shell.
-I also using direnv just run `direnv allow`
+If you are using nix run `nix-shell  --arg pin './.nixpkg.nix'` to drop into a preconfigured shell.
+I you are also using direnv just run `direnv allow`
 
 -----
 Credits for the template this is based on go to: [Dimitrie Hoekstra](https://gitlab.com/dimitrieh/curriculumvitae-ci-boilerplate)
