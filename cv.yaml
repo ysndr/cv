@@ -39,9 +39,9 @@ skills:
 - Application and Architecture of Machine Learning Algorithms and Neural Networks
 - Big Data Analytics & Semantic Web
 - Functional Programming
-- "Languages and ecosystems: Rust, Java, Python (SciPy, Scikit), Typescript, VueJS/NuxtJS, PHP, Haskell"
-- "Systems/embedded development and WASM with [rust](https://www.rust-lang.org/)"
-- "Declarative System configuration with [nix](https://nixos.org/nix/)"
+- "Languages and ecosystems: Rust, Java, Python (SciPy, SciKit Learn, PyTorch), Typescript, VueJS/NuxtJS, PHP, Haskell"
+- "Systems/embedded development and WASM using [rust](https://www.rust-lang.org/)"
+- "Declarative System configuration using [nix](https://nixos.org/nix/)"
 
 # This way you can list things you've accomplished without needing to associate them with a class or company. I however discourage detailed descriptions of these projects. Titles should be eye caching and be used for inspiration of talking points during the interview.
 
