@@ -62,7 +62,7 @@
 % Remove headline
 \renewcommand{\headrulewidth}{0pt}
 \cfoot{\textsc{\MakeLowercase{$firstname$} \MakeLowercase{$lastname$} cv -- page \thepage \xspace of \pageref*{LastPage}}\\\vspace{.45cm}{\footnotesize \href{tel:$phone$}{$phone$} --
-\href{mailto:$email$}{$email$}}\\\textit{\footnotesize save trees do not print}}
+\href{mailto:$email$}{$email$}}\\\textit{\footnotesize save trees, please do not print}}
 
 % LANGUAGE
 %--------------------------------
@@ -83,7 +83,7 @@ $endif$
 % may enable RawFeature +ss02 as well
 \IfFontExistsTF{$mainfont$}
   {
-  \setmainfont[Ligatures={Common, Historic, Rare}, Numbers={OldStyle}, RawFeature={+ss04,+ss05}]{$mainfont$}
+  \setmainfont[Ligatures={Common, Historic}, Numbers={OldStyle}, RawFeature={+ss04,+ss05}]{$mainfont$}
   \defaultfontfeatures{Mapping=tex-text}
   }
   {
@@ -213,6 +213,7 @@ $endif$
 $if(skills)$
 \subsection*{$skillstitle$}
 \begin{itemize}
+    \setlength\itemsep{-.25em}
     $for(skills)$
       \item $skills$
     $endfor$
@@ -304,14 +305,20 @@ $endif$
 $if(endorsements)$
 \section*{$endorsementstitle$}
     $for(endorsements)$
-      \textsc{$endorsements.firstname$ $endorsements.lastname$} -- $endorsements.company$\\
-      \emph{$endorsements.profession$}
+      \note{\textsc{$endorsements.firstname$ $endorsements.lastname$}}
+      \emph{$endorsements.profession$}\\
+      $endorsements.company$\\
+      $if(endorsements.quote)$
       \begin{itemize}
           \setlength\itemsep{-.25em}
           $for(endorsements.quote)$
-            {\small\item[]\parbox{38em}{\andIquote $endorsements.quote$''}}
-          $endfor$\\
+            {\small\item[]\parbox{38em}{\andIquote $endorsements.quote$''}}$sep$\\
+          $endfor$
       \end{itemize}
+      $endif$
+      $if(endorsements.contact)$
+      $endorsements.contact$\\
+      $endif$
     $endfor$
 $endif$
 
