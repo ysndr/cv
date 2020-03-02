@@ -64,7 +64,7 @@ experience:
 - beginyears: june 2018
   # endyears: jan 1889
   employer: Wambo Agency GmbH & Co.KG
-  profession: Full-Stack Software Developer 
+  profession: Full-Stack Software Developer
   city: Bielefeld
   details:
     - Developing an analytics dashboard for web shops based on Magento using Laravel & NuxtJS
@@ -82,34 +82,33 @@ experience:
 otherexperiencetitle: Other Related Experiences
 otherexperience:
 - beginyears: march 2019
-  endyears: july 2019
-  employer: University of Bielefeld
-  profession: Product owner
-  city: Bielefeld
-  details:
-    - Worked on a project with fellow students in partnership with Capgemini SE using agile software engineering strategies
-    - Developed a mobile first PWA using NuxtJS and Java Spring for managing conferences and meetings in distributed venues
-- beginyears: march 2019
   endyears: august 2019
   employer: University of Bielefeld
   profession: Machine Learning Project
   city: Bielefeld
   details:
-    - Developed SAM kNN Regressor [(Availlable on Github)](https://github.com/ysndr/sam-knn-regressor)
+    - Developed SAM kNN Regressor [(Available on Github)](https://github.com/ysndr/sam-knn-regressor)
+- beginyears: march 2019
+  endyears: july 2019
+  employer: University of Bielefeld
+  profession: Product owner
+  city: Bielefeld
+  details:
+    - Leader of project group done in partnership with Capgemini SE, using agile methods
+    - Developed mobile first PWA using NuxtJS and Java Spring for managing conferences and meetings in distributed venues
 - beginyears: july 2019
   # endyears: august 2019
   employer: NixOS/Nix Organization
-  profession: Maintainer for several packages
+  profession: Maintainer of several packages
   # city: Bielefeld
   details:
-    # - Developed SAM kNN Regressor [(Availlable on Github)](https://github.com/ysndr/sam-knn-regressor)
 - beginyears: september 2019
   endyears: february 2020
   employer: University of Bielefeld
   profession: Project in NLP using BERT
   city: Bielefeld
   details:
-    - Used BERT model to do relationship extraction
+    - Used BERT model to do relationship extraction fusing sentence classification and entity recognition
 
 
 # Self explanatory
@@ -154,6 +153,9 @@ information:
   information_content: 2017 --
 - information_title: Participation in *Google Hashcode 2019*
   information_content: "[https://github.com/ysndr/google-hashcode-2019](https://github.com/ysndr/google-hashcode-2019)"
+- information_title: Participation in *Google Hashcode 2020*
+  information_content: "[https://github.com/ysndr/google-hashcode-2020](https://github.com/ysndr/google-hashcode-2020)"
+
 # - information_title: Rate
 #   information_content: 55,- p.h.
 # - information_title: Availability
