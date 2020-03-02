@@ -31,6 +31,7 @@ let
     paths = [latex] ++ pandoc-pkgs;
     script = ''
       pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
+      --
     '';
   };
 
@@ -86,7 +87,7 @@ let
       compile-pdf
       compile-gif
       publish
-    ];
+    ] ++ pandoc-pkgs ++ [latex];
   };
 
 in {
