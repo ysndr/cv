@@ -61,8 +61,16 @@ languages:
 # Experience regarding the job you are applying for, if beginning out only use this section, not other work experience.
 experiencetitle: Business Experience # or Previous Experience
 experience:
-- beginyears: june 2018
+- beginyears: may 2020
   # endyears: jan 1889
+  employer: Stichting NixOS Foundation
+  profession: Freelancing Software Developer (Dev-Ops)
+  # city:
+  details:
+    - Packaging projects funded by the European Commission as part of [NGI ZERO](https://www.ngi.eu/ngi-projects/ngi-zero/)
+    - Making software build reproducible using the Nix ecosystem
+- beginyears: june 2018
+  endyears: may 2020
   employer: Wambo Agency GmbH & Co.KG
   profession: Full-Stack Software Developer
   city: Bielefeld
