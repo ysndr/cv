@@ -17,12 +17,14 @@ jobs:
             git config --global user.name "cv-builder"
             git config --global user.email "notifications+cv@ysndr.de"
             git config submodule.public.url "https://ysndr:${{secrets.GH_TOKEN}}@gist.github.com/978662957bb9187fd52b2037466e1e34.git"
-            git config submodule.public.branch master 
+            git config submodule.public.branch master
             git submodule update --init --remote --merge
             git checkout ${GITHUB_REF##*/}
-    - name: Compile Document
+    - name: Compile Document (EN)
       run: $(nix-build -A ci.compile-pdf --no-out-link)
-    - name: Push Document
+    - name: Compile Document (DE)
+      run: $(nix-build -A ci.compile-pdf-german --no-out-link)
+    - name: Push Documents
       run: |
             pushd public
             git status
@@ -31,7 +33,7 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }} 
+        github_token: ${{ secrets.GITHUB_TOKEN }}
   always-run:
     runs-on: ubuntu-latest
     steps:

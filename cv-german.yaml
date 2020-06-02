@@ -1,0 +1,187 @@
+---
+### Macro's ###
+
+# use \latex for the special LaTeX symbol
+# use \amper for the special ampersand symbol
+# use \andIquote for special hanging punctuation at the beginning of a paragraph
+# use -- for a nut dash or n-dash
+# use --- for a mutton dash or m-dash
+
+### Personal details ###
+
+firstname: Yannik
+lastname: Sander
+# Adjust this to the job you are applying for
+# title: Philosopher
+birthdate: 16.11.1998
+address:
+- Addresse und telefonischer Kontakt auf nachfrage
+phone: ------
+email: contact@ysndr.de
+# Insert URLs without http://
+urls:
+- ysndr.de
+- github.com/ysndr
+- linkedin.com/in/yannik-sander
+
+
+### Sections ###
+
+# Describe your intention, what makes you tick and why you want to work here.
+
+# intro:
+#   - I know my fate. One day my name will be associated with the memory of something tremendous --- a crisis without equal on earth, the most profound collision of conscience, a decision that was conjured up against everything that had been believed, demanded, hallowed so far. I am no man, I am dynamite.
+#   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+# Your skills and interests that are essential to the job
+skillstitle: Fähigkeiten & Interessen
+skills:
+- Anwendung und Architektur von Machine Learning Methoden und Neuronalen Netzwerken
+- Big Data Analytics & Semantic Web
+- Funktionale Programmierung
+- "Programmiersprachen und Frameworks: Rust, Java, Python (SciPy, SciKit Learn, PyTorch), Typescript, VueJS/NuxtJS,Haskell, PHP (Laravel)"
+- "Embedded development und WASM mit [rust](https://www.rust-lang.org/)"
+- "Deklarative System Konfiguration mit [nix](https://nixos.org/nix/)"
+
+# This way you can list things you've accomplished without needing to associate them with a class or company. I however discourage detailed descriptions of these projects. Titles should be eye caching and be used for inspiration of talking points during the interview.
+
+# projectstitle: Projects
+# projects:
+# - Perspectivism
+# - Death of God and nihilism
+
+# Your spoken languages, preferably only name those professionally usable
+languagestitle: Sprachen
+languages:
+- language: Deutsch
+  proficiency: Muttersprache
+- language: Englisch
+  proficiency: Sprachniveau  C1 (Nach DAAD)
+
+# Experience regarding the job you are applying for, if beginning out only use this section, not other work experience.
+experiencetitle: Bisherige Erfahrung # or Previous Experience
+experience:
+- beginyears: Mai 2020
+  # endyears: jan 1889
+  employer: Stichting NixOS Foundation
+  profession: Freelancing Software Developer (Dev-Ops)
+  # city:
+  details:
+    - Software Packages für geförderte Projekte des [NGI ZERO](https://www.ngi.eu/ngi-projects/ngi-zero/) Programms der Europäischen Kommision erstellen
+    - Software reproduzierbar zur Verfügung stellen mit Nix
+- beginyears: Juni 2018
+  endyears: Mai 2020
+  employer: Wambo Agency GmbH & Co.KG
+  profession: Full-Stack Software Developer
+  city: Bielefeld
+  details:
+    - Erstellen eines Analytics Dashboards für Magento Web Shops mit Laravel & NuxtJS
+    - Arbeit an einem intelligenten Sortierungstool für Web Shops mit Laravel
+- beginyears: April 2016
+  endyears: Mai 2018
+  employer: BATT GmbH
+  profession: Software Developer
+  city: Bielefeld
+  details:
+    - Erstellen von Modulen für das offene ERP System odoo
+    - Schreiben  von  Pyhton Treibern für verschiedene Sensoren im Rahmen eines Test frameworks für Beleeuchtungsanlagen von Luftfahrtplätzen
+
+# Work not directly related to the job you are applying for
+otherexperiencetitle: Weitere Erfahrungen
+otherexperience:
+- beginyears: März 2019
+  endyears: August 2019
+  employer: Universität Bielefeld
+  profession: Machine Learning Projeckt
+  city: Bielefeld
+  details:
+    - Entwicklung SAM kNN Regressor [(Available on Github)](https://github.com/ysndr/sam-knn-regressor)
+- beginyears: März 2019
+  endyears: Juli 2019
+  employer: Universität Bielefeld
+  profession: Product owner
+  city: Bielefeld
+  details:
+    - Leiter einer Projektgruppe in Zusammenarbeitmit Capgemini SE.
+    - Entwicklung einer mobile first PWA mit NuxtJS und Java Spring zur Verwaltung von Konferenzen und Meetings an verteilten Standorten
+- beginyears: Juli 2019
+  # endyears: august 2019
+  employer: NixOS/Nix Organization
+  profession: Maintainer mehrerer Packages
+  # city: Bielefeld
+  details:
+- beginyears: September 2019
+  endyears: Februar 2020
+  employer: Universität Bielefeld
+  profession: Projekt in NLP
+  city: Bielefeld
+  details:
+    - Einatz des BERT Models zur Relationship Extraction
+
+
+# Self explanatory
+educationtitle: Ausbildung
+education:
+- beginyears: 2017
+  endyears:
+  subject: Kognitive Informatik
+  institute: Universität Bielefeld
+  city: Bielefeld
+  degree: Bachelor of Science
+  # details:
+  #   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+- beginyears: 2009
+  endyears: 2017
+  # subject: Abitur
+  institute: Helmholtz Gymnasium Bielefeld
+  city: Bielefeld
+  degree: Abitur
+  # details:
+  #   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+  #   - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+# Note special people who can endorse/recommend you, must be directly related to the job you are applying for
+# endorsementstitle: Endorsements # or Recommendations
+# endorsements:
+# - firstname: Paul
+#   lastname: Deussen
+#   profession: Indologist and Professor of Philosophy
+#   company: University of Kiel
+#   quote: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+# - firstname: Karl
+#   lastname: Hillebrand
+#   profession: Professor of Foreign Literature
+#   company: Firenze
+#   quote: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+
+# Additional information that can be of use.
+informationtitle: Weitere Informationen
+information:
+- information_title: Stipendiat der *Studienstiftung des deutschen Volkes*
+  information_content: 2017 --
+- information_title: Teilnahme an *Google Hashcode 2019*
+  information_content: "[https://github.com/ysndr/google-hashcode-2019](https://github.com/ysndr/google-hashcode-2019)"
+- information_title: Participation in *Google Hashcode 2020*
+  information_content: "[https://github.com/ysndr/google-hashcode-2020](https://github.com/ysndr/google-hashcode-2020)"
+
+# - information_title: Rate
+#   information_content: 55,- p.h.
+# - information_title: Availability
+#   information_content: Not available on 5th of may - 8th of may
+# - information_title: Special Circumstances
+#   information_content: None
+
+### Settings ###
+
+# photo: "NietzscheA.jpg" # Photo filename with extension, .PNG or .JPG files preferably, dont use special characters in your filename
+mainfont: Alegreya Sans # fonts: Hoefler Text / OFL Sorts Mill Goudy / Sabon LT Std / Cardo / Linux Libertine O | you can use any good font, put your .otf in the fonts dir
+fontsize: 10pt # this template is based upon 10pt, ratios may not scale accordingly, options: 10pt or 11pt or 12pt
+lang: de-DE # do not use capital letters: dutch / german
+geometry: a4paper, left=35mm, right=35mm, top=51mm, bottom=30mm # This document should NOT be printed double sided!
+geometrysecondarypagestop: 11mm # this will be minus! So 51mm - 21mm
+textcolor: "1e2323" # use hexcolor, 000000 for black
+linkcolor: "3E6E7E" # use hexcolor, FF0000 for red
+pagecolor: "ffffff" # use hexcolor, FFFFFF for white
+template: ./cv.tex
+links-as-notes: true
+...

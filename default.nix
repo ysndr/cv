@@ -2,8 +2,10 @@
  pin ? ./nixpkgs.nix,
  publicdir ? "public",
  pdfout ? "curriculum-vitae-yannik-sander.pdf",
+ pdfout-german ? "curriculum-vitae-yannik-sander-de.pdf",
  gifout ? "curriculum-vitae-yannik-sander.gif",
  cvsrc ? "cv.yaml",
+ cvsrc-german ? "cv-german.yaml",
  cvtemplate ? "cv.tex",
  ... }:
 with  import pkgs.path {
@@ -31,6 +33,14 @@ let
     paths = [latex] ++ pandoc-pkgs;
     script = ''
       pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
+    '';
+  };
+
+  compile-pdf-german = script {
+    name = "compile-pdf-german";
+    paths = [latex] ++ pandoc-pkgs;
+    script = ''
+      pandoc ${cvsrc-german} -o ${publicdir}/${pdfout-german} --template=${cvtemplate} --pdf-engine=xelatex
     '';
   };
 
@@ -84,6 +94,7 @@ let
     name = "cv-env";
     buildInputs = [] ++ map bin [
       compile-pdf
+      compile-pdf-german
       compile-gif
       publish
     ] ++ pandoc-pkgs ++ [latex];
@@ -93,6 +104,6 @@ in {
 
   inherit shell;
   ci = {
-    inherit compile-pdf publish;
+    inherit compile-pdf compile-pdf-german publish;
   };
 }
