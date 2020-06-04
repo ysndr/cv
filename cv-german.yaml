@@ -15,7 +15,7 @@ lastname: Sander
 # title: Philosopher
 birthdate: 16.11.1998
 address:
-- Addresse und telefonischer Kontakt auf nachfrage
+- Addresse und telefonischer Kontakt auf Nachfrage
 phone: ------
 email: contact@ysndr.de
 # Insert URLs without http://
@@ -161,7 +161,7 @@ information:
   information_content: 2017 --
 - information_title: Teilnahme an *Google Hashcode 2019*
   information_content: "[https://github.com/ysndr/google-hashcode-2019](https://github.com/ysndr/google-hashcode-2019)"
-- information_title: Participation in *Google Hashcode 2020*
+- information_title: Teilnahme an *Google Hashcode 2020*
   information_content: "[https://github.com/ysndr/google-hashcode-2020](https://github.com/ysndr/google-hashcode-2020)"
 
 # - information_title: Rate
