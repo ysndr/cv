@@ -122,8 +122,16 @@ otherexperience:
 # Self explanatory
 educationtitle: Education
 education:
+- beginyears: 2020
+  endyears: 2022
+  subject: Software Engineering of Distributed Systems
+  institute: Royal Institute of Technology (KTH)
+  city: Stockholm
+  degree: Master of Science
+  # details:
+  #   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
 - beginyears: 2017
-  endyears:
+  endyears: 2020
   subject: Cognitive Computer Science
   institute: University of Bielefeld
   city: Bielefeld
