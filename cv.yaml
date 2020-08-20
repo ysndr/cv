@@ -117,6 +117,12 @@ otherexperience:
   city: Bielefeld
   details:
     - Used BERT model to do relationship extraction fusing sentence classification and entity recognition
+- beginyears: may 2020
+  endyears: august 2020
+  employer: University of Bielefeld
+  profession: Extension of an internal HPC/SIMD library
+  city:
+  details:
 
 
 # Self explanatory
