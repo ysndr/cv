@@ -125,6 +125,19 @@ otherexperience:
   profession: Extension of an internal HPC/SIMD library
   city:
   details:
+- beginyears: june 2020
+  endyears: august 2020
+  employer: University of Bielefeld
+  profession: Project in Cognitive Computing
+  city:
+  details: Apply Minimal Mental Models algorithm to reduce the the number of possible models to consider for agents in social interactions
+- beginyears: june 2020
+  endyears: august 2020
+  employer: University of Bielefeld, WAGO Kontakttechnik GmbH & Co.KG
+  profession: Bachelor Thesis
+  city:
+  details: Simulate and study the behavior of SAM-kNN online drift detecting regression algorithm in an industry use case
+
 
 
 # Self explanatory
