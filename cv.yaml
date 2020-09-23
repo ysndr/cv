@@ -57,6 +57,8 @@ languages:
   proficiency: native speaker
 - language: English
   proficiency: full professional proficiency
+- language: Swedish
+  proficiency: beginner
 
 # Experience regarding the job you are applying for, if beginning out only use this section, not other work experience.
 experiencetitle: Business Experience # or Previous Experience
