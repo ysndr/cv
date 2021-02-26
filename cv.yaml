@@ -36,12 +36,14 @@ urls:
 # Your skills and interests that are essential to the job
 skillstitle: Skills & areas of interest
 skills:
+- Building and analyzing Distributed Systems
 - Application and Architecture of Machine Learning Algorithms and Neural Networks
-- Big Data Analytics & Semantic Web
+- Big Data Analytics (Apache Big Data Tools) & Semantic Web
 - Functional Programming
-- "Languages and ecosystems: Rust, Java, Python (SciPy, SciKit Learn, PyTorch), Typescript, VueJS/NuxtJS, PHP, Haskell"
+- "Languages and ecosystems: Rust, Python (SciPy, SciKit Learn, PyTorch), Java, Scala, Typescript, VueJS/NuxtJS, PHP, Haskell, Erlang"
 - "Systems/embedded development and WASM using [rust](https://www.rust-lang.org/)"
 - "Declarative System configuration using [nix](https://nixos.org/nix/)"
+
 
 # This way you can list things you've accomplished without needing to associate them with a class or company. I however discourage detailed descriptions of these projects. Titles should be eye caching and be used for inspiration of talking points during the interview.
 
@@ -59,6 +61,8 @@ languages:
   proficiency: full professional proficiency
 - language: Swedish
   proficiency: beginner
+# - language: Chinese
+#   proficiency: '"There are four tones ..."'
 
 # Experience regarding the job you are applying for, if beginning out only use this section, not other work experience.
 experiencetitle: Business Experience # or Previous Experience
@@ -73,7 +77,7 @@ experience:
     - Making software build reproducible using the Nix ecosystem
 - beginyears: june 2018
   endyears: may 2020
-  employer: Wambo Agency GmbH & Co.KG
+  employer: Wambo Agency GmbH & Co. KG
   profession: Full-Stack Software Developer
   city: Bielefeld
   details:
@@ -91,52 +95,39 @@ experience:
 # Work not directly related to the job you are applying for
 otherexperiencetitle: Projects and Related Experiences
 otherexperience:
-- beginyears: march 2019
-  endyears: august 2019
-  employer: University of Bielefeld
-  profession: Machine Learning Project
-  city: Bielefeld
+- beginyears: august 2020
+  # endyears: januar 2021
+  employer: Royal Institute of Technology (KTH)
+  profession: Projects
+  city: Stockholm
   details:
-    - Developed SAM kNN Regressor [(Available on Github)](https://github.com/ysndr/sam-knn-regressor)
-- beginyears: march 2019
-  endyears: july 2019
-  employer: University of Bielefeld
-  profession: Product owner
-  city: Bielefeld
-  details:
-    - Leader of project group done in partnership with Capgemini SE, using agile methods
-    - Developed mobile first PWA using NuxtJS and Java Spring for managing conferences and meetings in distributed venues
+    - "Analyzing Git repositories with Apache Spark"
+    - "Writing a Compiler for a subset of the C language in Rust"
+    - "Implementing a text search engine"
 - beginyears: july 2019
   # endyears: august 2019
   employer: NixOS/Nix Organization
   profession: Maintainer of several packages
   # city: Bielefeld
   details:
-- beginyears: september 2019
-  endyears: february 2020
-  employer: University of Bielefeld
-  profession: Project in NLP using BERT
-  city: Bielefeld
-  details:
-    - Used BERT model to do relationship extraction fusing sentence classification and entity recognition
-- beginyears: may 2020
-  endyears: august 2020
-  employer: University of Bielefeld
-  profession: Extension of an internal HPC/SIMD library
-  city:
-  details:
-- beginyears: june 2020
-  endyears: august 2020
-  employer: University of Bielefeld
-  profession: Project in Cognitive Computing
-  city:
-  details: Apply Minimal Mental Models algorithm to reduce the the number of possible models to consider for agents in social interactions
 - beginyears: june 2020
   endyears: august 2020
   employer: University of Bielefeld, WAGO Kontakttechnik GmbH & Co.KG
   profession: Bachelor Thesis
   city:
   details: Simulate and study the behavior of SAM-kNN online drift detecting regression algorithm in an industry use case
+- beginyears: march 2019
+  endyears: august 2019
+  employer: University of Bielefeld
+  profession: Projects
+  city: Bielefeld
+  details:
+    - SAM kNN Regressor [(Available on Github)](https://github.com/ysndr/sam-knn-regressor)
+    - Team Lead for mobile first PWA using NuxtJS and Java Spring for managing conferences and meetings in distributed venues (Group project in partnership with Capgemini SE)
+    - Relationship extraction fusing sentence classification and entity recognition using BERT
+    - Extension of an internal HPC/SIMD library
+    - Apply Minimal Mental Models algorithm to reduce the the number of possible models to consider for agents in social interactions
+
 
 
 
@@ -159,12 +150,9 @@ education:
   degree: Bachelor of Science
   # details:
   #   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-- beginyears: 2009
-  endyears: 2017
+# - beginyears: 2009
+#   endyears: 2017
   # subject: Abitur
-  institute: Helmholtz Gymnasium Bielefeld
-  city: Bielefeld
-  degree: Abitur
   # details:
   #   - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
   #   - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -188,10 +176,8 @@ informationtitle: Additional Information
 information:
 - information_title: Scholarship holder at *Studienstiftung des deutschen Volkes*
   information_content: 2017 --
-- information_title: Participation in *Google Hashcode 2019*
-  information_content: "[https://github.com/ysndr/google-hashcode-2019](https://github.com/ysndr/google-hashcode-2019)"
-- information_title: Participation in *Google Hashcode 2020*
-  information_content: "[https://github.com/ysndr/google-hashcode-2020](https://github.com/ysndr/google-hashcode-2020)"
+- information_title: Participation in *Google Hashcode 20{19,20,21}*
+  information_content: "ysndr/google-hashcode-\\{[2019](https://github.com/ysndr/google-hashcode-2019),[2020](https://github.com/ysndr/google-hashcode-2020),[2021](https://github.com/ysndr/google-hashcode-2021)\\}"
 
 # - information_title: Rate
 #   information_content: 55,- p.h.
