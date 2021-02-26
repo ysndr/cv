@@ -1,25 +1,28 @@
-{pkgs ? import (if pin == false then <nixpkgs> else pin) {},
- pin ? ./nixpkgs.nix,
- publicdir ? "public",
- pdfout ? "curriculum-vitae-yannik-sander.pdf",
- pdfout-german ? "curriculum-vitae-yannik-sander-de.pdf",
- gifout ? "curriculum-vitae-yannik-sander.gif",
- cvsrc ? "cv.yaml",
- cvsrc-german ? "cv-german.yaml",
- cvtemplate ? "cv.tex",
- ... }:
+{ pkgs ? import (if pin == false then <nixpkgs> else pin) {}
+, pin ? ./nixpkgs.nix
+, publicdir ? "public"
+, pdfout ? "curriculum-vitae-yannik-sander.pdf"
+, pdfout-german ? "curriculum-vitae-yannik-sander-de.pdf"
+, gifout ? "curriculum-vitae-yannik-sander.gif"
+, cvsrc ? "cv.yaml"
+, cvsrc-german ? "cv-german.yaml"
+, cvtemplate ? "cv.tex"
+, ...
+}:
 with  import pkgs.path {
-  overlays = [ ];
+  overlays = [];
 };
 let
 
   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      pkgs=pkgs;
+    pkgs = pkgs;
   };
 
-  script = {...} @ args: nur.repos.ysndr.lib.wrap ({
-    shell = true;
-  } // args);
+  script = {...} @ args: nur.repos.ysndr.lib.wrap (
+    {
+      shell = true;
+    } // args
+  );
 
   bin = file: script ({ inherit file; bin = true; name = file.name; });
 
@@ -30,15 +33,16 @@ let
 
   compile-pdf = script {
     name = "compile-pdf";
-    paths = [latex] ++ pandoc-pkgs;
+    paths = [ latex ] ++ pandoc-pkgs;
     script = ''
+    echo b
       pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
     '';
   };
 
   compile-pdf-german = script {
     name = "compile-pdf-german";
-    paths = [latex] ++ pandoc-pkgs;
+    paths = [ latex ] ++ pandoc-pkgs;
     script = ''
       pandoc ${cvsrc-german} -o ${publicdir}/${pdfout-german} --template=${cvtemplate} --pdf-engine=xelatex
     '';
@@ -46,7 +50,7 @@ let
 
   compile-gif = script {
     name = "compile-gif";
-    paths = [imagemagick ghostscript];
+    paths = [ imagemagick ghostscript ];
     script = ''
       ${compile-pdf}
       convert -layers OptimizePlus \
@@ -61,8 +65,8 @@ let
 
   publish = script {
     name = "publish";
-    paths = [git];
-    script =  ''
+    paths = [ git ];
+    script = ''
       set -ex
       commit=$(git log -1 --abbrev-commit --oneline | cut -f1 -d " ")
 
@@ -80,8 +84,8 @@ let
 
   latex = texlive.combine {
     inherit (texlive) scheme-small
-    footmisc pagecolor etoolbox xcolor tcolorbox lastpage fancyhdr  polyglossia xunicode xltxtra marginnote sectsty hyperref environ trimspaces tex-gyre alegreya
-                      ;
+      footmisc pagecolor etoolbox xcolor tcolorbox lastpage fancyhdr polyglossia xunicode xltxtra marginnote sectsty hyperref environ trimspaces tex-gyre alegreya
+      ;
   };
 
   pandoc-pkgs = [
@@ -97,12 +101,31 @@ let
       compile-pdf-german
       compile-gif
       publish
-    ] ++ pandoc-pkgs ++ [latex];
+    ] ++ pandoc-pkgs ++ [ latex ];
   };
 
-in {
+  cv = let
+    files = nix-gitignore.gitignoreSourcePure [
+      "*"
+      "!${cvsrc}"
+      "!${cvtemplate}"
+    ] ./.;
+    in
+  runCommandNoCC "cv" {
 
-  inherit shell;
+    buildInputs =[ (bin compile-pdf) ];
+  }
+  ''
+  echo c ${files}
+    cp -r ${files}/* ./
+    mkdir ${publicdir}
+    compile-pdf
+    cp ${publicdir}/${pdfout} $out
+  '';
+in
+{
+
+  inherit shell cv;
   ci = {
     inherit compile-pdf compile-pdf-german publish;
   };
