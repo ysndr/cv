@@ -2,7 +2,7 @@
 , pin ? ./nixpkgs.nix
 , publicdir ? "public"
 , pdfout ? "curriculum-vitae-yannik-sander.pdf"
-, pdfout-german ? "curriculum-vitae-yannik-sander-de.pdf"
+, pdfout-german ? "X-curriculum-vitae-yannik-sander-de.pdf"
 , gifout ? "curriculum-vitae-yannik-sander.gif"
 , cvsrc ? "cv.yaml"
 , cvsrc-german ? "cv-german.yaml"
@@ -35,7 +35,6 @@ let
     name = "compile-pdf";
     paths = [ latex ] ++ pandoc-pkgs;
     script = ''
-    echo b
       pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
     '';
   };
