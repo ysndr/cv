@@ -117,7 +117,7 @@ otherexperience:
   city:
   details: Simulate and study the behavior of SAM-kNN online drift detecting regression algorithm in an industry use case
 - beginyears: march 2019
-  endyears: august 2019
+  endyears: august 2020
   employer: University of Bielefeld
   profession: Projects
   city: Bielefeld
@@ -127,9 +127,6 @@ otherexperience:
     - Relationship extraction fusing sentence classification and entity recognition using BERT
     - Extension of an internal HPC/SIMD library
     - Apply Minimal Mental Models algorithm to reduce the the number of possible models to consider for agents in social interactions
-
-
-
 
 # Self explanatory
 educationtitle: Education
@@ -178,6 +175,7 @@ information:
   information_content: 2017 --
 - information_title: Participation in *Google Hashcode 20{19,20,21}*
   information_content: "ysndr/google-hashcode-\\{[2019](https://github.com/ysndr/google-hashcode-2019),[2020](https://github.com/ysndr/google-hashcode-2020),[2021](https://github.com/ysndr/google-hashcode-2021)\\}"
+-- information_title: "Organizer: Google HashCode Hub @ KTH Stockholm"
 
 # - information_title: Rate
 #   information_content: 55,- p.h.
