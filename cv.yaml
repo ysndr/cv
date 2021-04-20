@@ -13,11 +13,11 @@ firstname: Yannik
 lastname: Sander
 # Adjust this to the job you are applying for
 # title: Philosopher
-birthdate: 16.11.1998
 address: 
 - "*address not public*"
 phone: #
 email: contact@ysndr.de
+birthdate: 1998/11/16
 # Insert URLs without http://
 urls:
 - ysndr.de
