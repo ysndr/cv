@@ -40,7 +40,7 @@ skills:
 - Application and Architecture of Machine Learning Algorithms and Neural Networks
 - Big Data Analytics (Apache Big Data Tools) & Semantic Web
 - Functional Programming
-- "Languages and ecosystems: Rust, Python (SciPy, SciKit Learn, PyTorch), Java, Scala, Typescript, VueJS/NuxtJS, PHP, Haskell, Erlang"
+- "Languages and ecosystems: Rust, Nix, Python (SciPy, SciKit Learn, PyTorch), Java, Scala, Typescript, VueJS/NuxtJS, PHP, Haskell, Erlang"
 - "Systems/embedded development and WASM using [rust](https://www.rust-lang.org/)"
 - "Declarative System configuration using [nix](https://nixos.org/nix/)"
 
