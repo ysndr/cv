@@ -67,6 +67,13 @@ languages:
 # Experience regarding the job you are applying for, if beginning out only use this section, not other work experience.
 experiencetitle: Business Experience # or Previous Experience
 experience:
+- beginyears: september 2021
+  # endyears: jan 1889
+  employer: Tweag.io
+  profession: Master Thesis
+  # city:
+  details:
+    - Implementing the [language server protocol](https://microsoft.github.io/language-server-protocol/) for [Nickel](https://nickel-lang.org/)
 - beginyears: may 2020
   # endyears: jan 1889
   employer: Stichting NixOS Foundation
@@ -75,6 +82,8 @@ experience:
   details:
     - Packaging projects funded by the European Commission as part of [NGI ZERO](https://www.ngi.eu/ngi-projects/ngi-zero/)
     - Making software build reproducible using the Nix ecosystem
+    - Rewriting, adding flake support to and taking over maintainance of [search.nixos.org](https://search.nixos.org) (June '21 -)
+    - Mentoring the [Summer of Nix](https://summer.nixos.org/) (July-October '21)
 - beginyears: june 2018
   endyears: may 2020
   employer: "Wambo Agency GmbH & Co. KG"
