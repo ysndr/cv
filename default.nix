@@ -33,7 +33,7 @@ let
 
   compile-pdf = script {
     name = "compile-pdf";
-    paths = [ latex ] ++ pandoc-pkgs;
+    paths = [ latex pkgs.alegreya-sans ] ++ pandoc-pkgs;
     script = ''
       pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
     '';
@@ -41,7 +41,7 @@ let
 
   compile-pdf-german = script {
     name = "compile-pdf-german";
-    paths = [ latex ] ++ pandoc-pkgs;
+    paths = [ latex pkgs.alegreya-sans ] ++ pandoc-pkgs;
     script = ''
       pandoc ${cvsrc-german} -o ${publicdir}/${pdfout-german} --template=${cvtemplate} --pdf-engine=xelatex
     '';
@@ -90,7 +90,6 @@ let
   pandoc-pkgs = [
     librsvg
     pandoc
-    haskellPackages.pandoc-citeproc
   ];
 
   shell = mkShell {
