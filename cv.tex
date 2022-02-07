@@ -61,7 +61,7 @@
 \fancyhf{}
 % Remove headline
 \renewcommand{\headrulewidth}{0pt}
-\cfoot{\textsc{\MakeLowercase{$firstname$} \MakeLowercase{$lastname$} cv -- page \thepage \xspace of \pageref*{LastPage}}\\\vspace{.45cm}{\footnotesize \href{tel:$phone$}{$phone$} --
+\cfoot{\textsc{\MakeLowercase{$firstname$} \MakeLowercase{$lastname$} cv -- page \thepage \xspace of \pageref*{LastPage}}\\\vspace{.45cm}{$if(phone)$\footnotesize \href{tel:$phone$}{$phone$} --$endif$
 \href{mailto:$email$}{$email$}}\\\textit{\footnotesize save trees, please do not print}}
 
 % LANGUAGE
