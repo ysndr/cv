@@ -14,6 +14,8 @@ with  import pkgs.path {
 };
 let
 
+  fonts = makeFontsConf { fontDirectories = [ "${pkgs.alegreya-sans}/share/fonts/otf" ]; };
+
   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
     pkgs = pkgs;
   };
@@ -33,8 +35,9 @@ let
 
   compile-pdf = script {
     name = "compile-pdf";
-    paths = [ latex pkgs.alegreya-sans ] ++ pandoc-pkgs;
+    paths = [ latex ] ++ pandoc-pkgs;
     script = ''
+      export FONTCONFIG_FILE=${fonts}
       pandoc ${cvsrc} -o ${publicdir}/${pdfout} --template=${cvtemplate} --pdf-engine=xelatex
     '';
   };
